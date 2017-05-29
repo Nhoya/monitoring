@@ -1,11 +1,11 @@
 # Monitoring Scripts
 
-## Check Auth
+## Check Logs
 
 Script for checking auth on the last 1 day
 
 
-## Check stuff
+## Check Stuff
 
 Control over critical values
 
