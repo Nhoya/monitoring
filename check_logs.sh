@@ -1,4 +1,5 @@
 #!/bin/bash
+RUNDECKIP=''
 yt_comp=$(date --date="yesterday" | awk {'print $1 " " $2 " " $3'})
 now=$(date -d "yesterday 00:03")
 day=$(echo $now| awk {'print $2'})
@@ -8,7 +9,7 @@ sud=$(cat /var/log/auth.log* |egrep "$day +$month"  | grep "sudo.*TTY" |grep -v 
 ppts=$(cat /var/log/auth.log* |egrep "$day +$month" | grep "sshd.*Did") #possible scanners
 #rundeck_con=$(cat /var/log/auth.log* |egrep "$day +$month" | grep "sshd.*Accepted publickey"|grep "IPHERE"  |wc -l) #IF YOU AREUSING RUNDECK INSERT IP HERE
 #rundeck_ip=$(cat /var/log/auth.log* | grep "sshd.*Accepted publickey" |egrep "$day +$month" |grep rundeck |awk '{print $11}' |sort -u) #finde the IP for rundeck
-sshok=$(cat /var/log/auth.log* |egrep "$day +$month" | grep "sshd.*Accepted publickey" |grep -v "178.32.209.118") #valid ssh logins
+sshok=$(cat /var/log/auth.log* |egrep "$day +$month" | grep "sshd.*Accepted publickey" |grep -v "$RUNDECKIP") #valid ssh logins
  
  
 #if someone logged in via ssh
